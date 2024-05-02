@@ -6,18 +6,18 @@ export class CoursesService {
   private courses: Course[] = [
     {
       id: 1,
-      name: "NestJS",
-      description: "Curso sobre os fundamentos do framework NestJS",
-      tags: ["NestJS", "NodeJS", "JavaScript", "TypeScript"]
-    }
-  ]
+      name: 'NestJS',
+      description: 'Curso sobre os fundamentos do framework NestJS',
+      tags: ['NestJS', 'NodeJS', 'JavaScript', 'TypeScript'],
+    },
+  ];
 
   findAll() {
     return this.courses;
   }
 
   findOne(id: number) {
-    const course = this.courses.find(course => course.id === id);
+    const course = this.courses.find((course) => course.id === id);
 
     if (!course) {
       throw new HttpException('Course not found :(', HttpStatus.NOT_FOUND);
@@ -33,24 +33,24 @@ export class CoursesService {
   update(id: number, updateCourseDTO: any) {
     const existingCourse = this.findOne(id);
     if (existingCourse as any) {
-      const index = this.courses.findIndex(course => course.id === id);
+      const index = this.courses.findIndex((course) => course.id === id);
       this.courses[index] = {
         id,
-        ...updateCourseDTO
-      }
+        ...updateCourseDTO,
+      };
     } else {
-      return "Course not found :("
+      return 'Course not found :(';
     }
   }
 
   remove(id: number) {
-    const index = this.courses.findIndex(course => course.id === id);
+    const index = this.courses.findIndex((course) => course.id === id);
 
     if (index >= 0) {
-      this.courses.splice(index, 1)
-      return "Course deleted!"
+      this.courses.splice(index, 1);
+      return 'Course deleted!';
     } else {
-      return "Course not found :("
+      return 'Course not found :(';
     }
   }
 }

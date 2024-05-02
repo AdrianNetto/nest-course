@@ -17,12 +17,12 @@ export class CoursesController {
 
   @Get()
   findAll() {
-    return this.courseService.findAll()
+    return this.courseService.findAll();
   }
 
   @Get(':id/')
   findOne(@Param('id') id: number) {
-    return this.courseService.findOne(id)
+    return this.courseService.findOne(id);
   }
 
   @Post()
@@ -37,6 +37,6 @@ export class CoursesController {
 
   @Delete(':id')
   remove(@Param('id') id: number) {
-    return this.courseService.remove(id)
+    return this.courseService.remove(id);
   }
 }
