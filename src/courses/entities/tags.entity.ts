@@ -24,9 +24,6 @@ export class Tag {
   @CreateDateColumn({ type: 'timestamp' })
   created_at: Date;
 
-  @UpdateDateColumn({ type: 'timestamp' })
-  updated_at: Date;
-
   @BeforeInsert()
   generateId() {
     if (this.id) {
