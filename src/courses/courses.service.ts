@@ -10,10 +10,10 @@ import { CreateCourseDTO } from './dto/create-course.dto';
 export class CoursesService {
   constructor(
     @InjectRepository(Course)
-    private readonly courseRepository: Repository<Course>,
+    private readonly courseRepository?: Repository<Course>,
 
     @InjectRepository(Tag)
-    private readonly tagRepository: Repository<Tag>,
+    private readonly tagRepository?: Repository<Tag>,
   ) {}
 
   async findAll() {
